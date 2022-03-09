@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https:/salatielqueiroz.com/sitemap.xml
