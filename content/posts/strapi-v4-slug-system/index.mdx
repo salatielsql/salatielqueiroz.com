@@ -16,12 +16,11 @@ Click at the Configure View button inside the Content-Type page:
 
 ![Figure 1](./strapi-v4-slug-system-figure-1.png)
 
-1. Add the follwing text to the slug's placeholder field: 
+1. Add the follwing text to the slug's placeholder field:
 
 `Generated automatically based on the [FIELD_TO_SLUGFY]`. In our case `title`
 
 2. Disable the Editable field option clicking in `false`
-
 
 ![Figure 1](./strapi-v4-slug-system-figure-2.png)
 
@@ -31,11 +30,11 @@ Save it and let's add the required code to generate the slugs.
 
 First install <a href="https://www.npmjs.com/package/slugify" target="_blank" rel="nofollow">`slugify`</a>
 
-```shell
+```bash
 npm install --save slugify
 ```
 
-```shell
+```bash
 yarn add slugify
 ```
 
@@ -43,7 +42,7 @@ After installing we need to update Strapi's lifecycles functions to create/updat
 
 Create a file following this format:
 
-`./src/api/[ENTITY_NAME]/content-types/[ENTITY_NAME]/lifecycles.js` 
+`./src/api/[ENTITY_NAME]/content-types/[ENTITY_NAME]/lifecycles.js`
 
 and add the code bellow to create the slug.
 
