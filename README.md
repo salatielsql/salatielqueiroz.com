@@ -5,7 +5,7 @@ My website and blog repository
 ### To-do
 
 - [x] Setup Eslint and Prettier
-- [] Setup husky pre-commit
+- [x] Setup husky pre-commit
 - [] Create a theme with Styled Components (fonts, colors, spaces)
 
 **Page components**
