@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 // styles
 const pageStyles = {
   color: '#232129',
@@ -48,7 +46,7 @@ const linkStyle = {
 const docLinkStyle = {
   ...linkStyle,
   listStyleType: 'none',
-  display: `inline-block`,
+  display: 'inline-block',
   marginBottom: 24,
   marginRight: 12
 }
@@ -84,6 +82,7 @@ const badgeStyle = {
   borderRadius: 4,
   padding: '4px 6px',
   display: 'inline-block',
+  // eslint-disable-next-line @typescript-eslint/prefer-as-const
   position: 'relative' as 'relative',
   top: -2,
   marginLeft: 10,
@@ -96,21 +95,21 @@ const links = [
     text: 'Tutorial',
     url: 'https://www.gatsbyjs.com/docs/tutorial/',
     description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+      'A great place to get started if you"re new to web development. Designed to guide you through setting up your first Gatsby site.',
     color: '#E95800'
   },
   {
     text: 'How to Guides',
     url: 'https://www.gatsbyjs.com/docs/how-to/',
     description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
+      'A great place to get started if you"re new to web development. Designed to guide you through setting up your first Gatsby site.',
     color: '#1099A8'
   },
   {
     text: 'Reference Guides',
     url: 'https://www.gatsbyjs.com/docs/reference/',
     description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
+      'A great place to get started if you"re new to web development. Designed to guide you through setting up your first Gatsby site.',
     color: '#BC027F'
   },
   {
@@ -132,16 +131,20 @@ const links = [
     url: 'https://www.gatsbyjs.com/cloud',
     badge: true,
     description:
-      'Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!',
+      'Now you"re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!',
     color: '#663399'
   }
 ]
 
+interface Props {
+  title: string
+}
+
 // markup
-const IndexPage = () => {
+const IndexPage = ({ title }: Props): JSX.Element => {
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <title>Home {title}</title>
       <h1 style={headingStyles}>
         Congratulations
         <br />

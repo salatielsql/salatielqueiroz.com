@@ -5,7 +5,7 @@ My website and blog repository
 ### To-do
 
 - [x] Setup Eslint and Prettier
-- [] Setup favicons generation [source](https://github.com/fabe/gatsby-universal/blob/master/scripts/favicons.js)
+- [] Setup husky pre-commit
 - [] Create a theme with Styled Components (fonts, colors, spaces)
 
 **Page components**
@@ -28,3 +28,4 @@ My website and blog repository
 - [] Setup sitemap [source](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/)
 - [] Setup JSONLD Strutured data [source](https://github.com/fabe/gatsby-universal/commit/f6e5342be4ac71ae767d0e991db730071a3dd60d)
 - [] Offline support
+- [] Setup favicons generation [source](https://github.com/fabe/gatsby-universal/blob/master/scripts/favicons.js)
