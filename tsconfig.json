@@ -99,7 +99,19 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "baseUrl": "src",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@components/*": ["components/*"],
+      "@config/*": ["config/*"],
+      "@assets/*": ["assets/*"],
+      "@queries/*": ["queries/*"],
+      "@requests/*": ["requests/*"],
+      "@contracts/*": ["contracts/*"],
+      "@enums/*": ["enums/*"],
+      "@utils/*": ["utils/*"]
+    }
   },
   "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*"]
 }
