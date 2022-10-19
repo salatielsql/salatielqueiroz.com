@@ -7,7 +7,7 @@ tags:
   - Typescript
 ---
 
-It's not possible to create an async constructor at the moment. So, if you are searching something like that is probably because you have to retreive data somewhere else using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" rel="nofollow norefer">promises</a> before using any of the class methods.
+It's not possible to create an async constructor at the moment. So, if you are searching for something like that is probably because you have to retreive data asynchronously before using any of the class methods and don't want to write multiple times the same code.
 
 **I'll show how you can acomplish that:**
 
@@ -122,5 +122,3 @@ export const TodoList = () => {
   )
 }
 ```
-
-This approach is benefitial because <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" rel="nofollow norefer">you don't need repeat yourself</a> but depending on what the async function inside constructor does can be hard o test it.
