@@ -1,0 +1,37 @@
+---
+const { title } = Astro.props
+import Footer from '@components/Footer.astro'
+---
+
+<html lang="en" class="dark dark:bg-dark-bluish-gray">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Borel&family=DM+Mono:wght@200;400&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="flex min-h-screen flex-col justify-between">
+    <div class="container mx-auto flex-1 bg-dark-bluish-gray p-2 pt-8 lg:flex lg:p-0 lg:pt-8">
+      <div class="lg:w-[160px] xl:fixed xl:w-[240px]">
+        <slot name="sidebar" />
+      </div>
+
+      <div class="mx-auto max-w-[762px] flex-1">
+        <slot name="body" />
+      </div>
+
+      <div class="fixed hidden w-[240px] xl:fixed">
+        <slot name="aside" />
+      </div>
+    </div>
+
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content'
+
+import BaseLayout from '@layouts/Base.astro'
+import BlogPostEntryItem from '@components/BlogPostEntryItem.astro'
+import { removeMarkdown } from '@utils/index'
+
+const { entry } = Astro.props
+
+export async function getStaticPaths() {
+  const topicsEntry = await getCollection('topics')
+
+  return topicsEntry.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const relatedPosts = await getCollection('blogpost', ({ data }) => data.topics.find(topic => topic.id === entry.id))
+---
+
+<BaseLayout>
+  <div slot="body">
+    <div class="flex">
+      <h1 class:list={['font-title text-2xl font-bold text-off-white', `text-${entry.id}`]}>
+        {entry.data.name} Posts
+      </h1>
+
+      <img src={`/${entry.data.icon}`} class="h-16 w-16" alt={entry.data.name} />
+    </div>
+
+    {
+      relatedPosts.map(post => (
+        <BlogPostEntryItem
+          url={`/blog/${post.slug}`}
+          date={post.data.date}
+          title={post.data.title}
+          excerpt={removeMarkdown(post.body).substring(0, 300).concat('...')}
+        />
+      ))
+    }
+  </div>
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content'
+import Brand from './Brand.astro'
+
+const topics = await getCollection('topics')
+---
+
+<div class="mb-10">
+  <Brand />
+</div>
+
+<p class="font-subtitle text-lg text-off-white">
+  Hey there! <span class="animate-slow-wave hover:animate-wave-infinite inline-block h-6 w-6 translate-x-0 cursor-grab"
+    >👋</span
+  >
+</p>
+<p class="font-sans text-sm font-extralight tracking-wide text-gray">
+  I'm Salatiel, a web developer who builds web products from well organized pixels.
+</p>
+
+<nav>
+  <ul class="my-10 flex flex-col">
+    <li>
+      <a href="#" class="my-1 block py-2 font-sans text-sm text-gray hover:text-off-white">About</a>
+    </li>
+    <li><a href="#" class="my-1 block py-2 font-sans text-sm text-gray hover:text-off-white">Blog</a></li>
+    <li><a href="#" class="my-1 block py-2 font-sans text-sm text-gray hover:text-off-white">Projects</a></li>
+  </ul>
+</nav>
+
+<p class="font-sans text-sm text-off-white">I write about:</p>
+
+<ul>
+  {
+    topics.map(topic => (
+      <li class="my-2">
+        <a
+          href={`/topics/${topic.id}`}
+          class="flex items-center py-1 font-label text-xxs uppercase text-gray hover:text-off-white"
+        >
+          <img src={topic.data.icon} class="mr-1 h-4 w-4" />
+          <span class="h-3">{topic.data.name}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<a href="/topics"></a>

@@ -1,0 +1,52 @@
+---
+import Brand from '@components/Brand.astro'
+import BaseLayout from '@layouts/Base.astro'
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<BaseLayout>
+  <div slot="sidebar">
+    <Brand />
+    <Brand />
+  </div>
+
+  <div slot="body">
+    <h1 class="font-title text-2xl font-bold text-off-white">{title}</h1>
+
+    <article
+      class="prose prose-code:whitespace-nowrap prose-code:py-0.5 prose-code:px-1 prose-code:rounded prose-code:bg-white-10 prose-code:text-sm prose-code:font-extralight prose-code:text-off-white prose-code:font-code prose-code:before:hidden prose-code:after:hidden prose-code: lg:prose-lg prose-p:tracking-wide prose-p:font-light prose-blockquote:font-code prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:text-gray prose-headings:text-light-blue prose-headings:font-subtitle dark:prose-invert selection:text-dark-highlight selection:bg-highlight"
+    >
+      <slot />
+    </article>
+  </div>
+
+  <style is:global>
+    .astro-code {
+      @apply rounded p-4 text-xs;
+    }
+
+    .astro-code > code {
+      background-color: transparent !important;
+      white-space: normal !important;
+    }
+
+    .astro-code > code > * {
+      @apply font-code;
+    }
+  </style>
+</BaseLayout>
+
+<style is:global>
+  .astro-code {
+    @apply rounded p-4 text-xs;
+  }
+
+  .astro-code > code > * {
+    @apply font-code;
+  }
+</style>

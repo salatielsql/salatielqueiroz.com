@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content'
+
+// Get all entries from a collection.
+// Requires the name of the collection as an argument.
+// Example: retrieve `src/content/blog/**`
+const allBlogPosts = await getCollection('blogpost')
+
+import BaseLayout from '../layouts/Base.astro'
+import BlogPostEntryItem from '../components/BlogPostEntryItem.astro'
+import Sidebar from '../components/Sidebar.astro'
+---
+
+<BaseLayout>
+  <Sidebar slot="sidebar" />
+
+  <div slot="body">
+    {
+      allBlogPosts.map(post => (
+        <BlogPostEntryItem
+          url={`/blog/${post.slug}`}
+          date={post.data.date}
+          title={post.data.title}
+          excerpt={post.body.substring(0, 300).concat('...')}
+        />
+      ))
+    }
+  </div>
+</BaseLayout>
