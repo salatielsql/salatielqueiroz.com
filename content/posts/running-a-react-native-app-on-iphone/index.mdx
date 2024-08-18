@@ -17,6 +17,8 @@ This tutorial will guide you through the process of running a React Native app o
 - [Managing devices, developer certificate and provision profile in your Apple account](#apple-stuff)
   - [Get iphone UDID and name](#get-iphone-udid-register-device)
   - [Register a new device](#register-a-new-device)
+  - [Create a iOS development certificate](#create-ios-development-certificate)
+  - [Update Provision Profile](#provision-profile)
 - [Installing iOS deploy](#installing-ios-deploy)
 - [Building the app](#building-the-app)
 
@@ -128,7 +130,13 @@ UDID is short for _Unique Device Identifier_ so with your iPhone connected to yo
 
 > For the dark mode folks, the nexts screenshots will be in light mode ~MY EYES~
 
+![register iphone apple account 1](./assets/register-iphone-apple-account-1.png)
+
 ![register iphone apple account 2](./assets/register-iphone-apple-account-2.png)
+
+![register iphone apple account 3](./assets/register-iphone-apple-account-3.png)
+
+![register iphone apple account 4](./assets/register-iphone-apple-account-4.png)
 
 ![register iphone apple account 5](./assets/register-iphone-apple-account-5.png)
 
@@ -155,6 +163,38 @@ Before creating a certificate you need to create a Certificate Signing Request (
 
 ![create ios development certificate 3](./assets/create-ios-development-certificate-3.png)
 
+<h2 id="provision-profile">Update Provision Profile</h2>
+
+Now, you have a new device registered and a new development certificate. The Provision Profile is what glues the two together.
+
+This will be the last step that need to be done in your Apple account. (Finally!)
+
+1. Go to [Provisioning Profiles](https://developer.apple.com/account/resources/profiles/list)
+2. Click on the plus button to create a new profile
+3. Select **iOS App Development** and click **Continue**
+4. Select an app ID and click **Continue**
+5. Select the iOS certificate you created in the previous step and click **Continue**
+6. Select the device you registered previously and click **Continue**
+7. Give a name to the provisioning profile and click **Generate**
+8. After the profile is generated click **Download**
+9. Open the Xcode project, go to your app target and select the **Signing & Capabilities** tab. Under Signing, import the provisioning profile you just downloaded.
+
+![provisioning profile 1](./assets/provisioning-profile-1.png)
+
+![provisioning profile 2](./assets/provisioning-profile-2.png)
+
+![provisioning profile 3](./assets/provisioning-profile-3.png)
+
+![provisioning profile 4](./assets/provisioning-profile-4.png)
+
+![provisioning profile 5](./assets/provisioning-profile-5.png)
+
+![provisioning profile 6](./assets/provisioning-profile-6.png)
+
+Be sure that after importing the provisioning profile in your Xcode project it shows no error messages. Here is an example of how it should look like:
+
+![provisioning profile xcode](./assets/provisioning-profile-xcode.png)
+
 <h2 id="installing-ios-deploy">Installing iOS deploy</h2>
 
 Depending on your iPhone OS version you need to install ios-deploy CLI. Please follow the instructions on the [ios-deploy GitHub page](https://github.com/ios-control/ios-deploy) to install it.
@@ -167,13 +207,13 @@ brew install ios-deploy
 
 <h2 id="building-the-app">Building the app</h2>
 
-Finnaly, you can build the app by running the following command in the terminal:
+Finnaly, you can to your React Native project and build the app by running the following command in the terminal:
 
 ```
 npx react-native run-ios --device='YOUR IPHONE NAME'
 ```
 
-You can pass `scheme` and `mode` as well:
+You can pass `scheme` and `mode` as well. Here's an example:
 
 ```
 npx react-native run-ios --device='iPhone de Salatiel' --scheme='Development' --mode='Debug'
