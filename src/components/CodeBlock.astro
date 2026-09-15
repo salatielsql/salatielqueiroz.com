@@ -1,0 +1,9 @@
+---
+type Props = {
+  lang?: string
+}
+
+const { lang } = Astro.props as Props
+---
+
+<pre><code class={lang ? `language-${lang}` : undefined}><slot /></code></pre>

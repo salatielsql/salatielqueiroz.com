@@ -2,10 +2,10 @@
 import PageLayout from '@/components/PageLayout.astro'
 import { getEntry, render } from 'astro:content'
 
-const entry = (await getEntry('pages', 'home'))!
+const entry = (await getEntry('pages', 'uses'))!
 const { Content } = await render(entry)
 ---
 
-<PageLayout title={entry.data.title} frontmatterRows={entry.data.frontmatterRows} feedHref="/rss.xml">
+<PageLayout title={entry.data.title} frontmatterRows={entry.data.frontmatterRows}>
   <Content />
 </PageLayout>

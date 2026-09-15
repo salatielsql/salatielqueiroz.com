@@ -1,0 +1,42 @@
+:root {
+  /* Colors */
+  --color-bg: #fdfdfc;
+  --color-heading: #26282c;
+  --color-body: #55575c;
+  --color-link: #1a56b8;
+  --color-gutter-mark: #d6d5d1;
+  --color-agent-context: #a3a19b;
+  --color-border: #e4e3df;
+  --color-code-bg: #f6f6f4;
+
+  /* Fonts — --font-jetbrains-mono vem da Fonts API (astro.config.mjs) */
+  --font-body: var(--font-jetbrains-mono);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Type scale */
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-code: 0.9rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.625rem;
+  --font-size-h3: 1.375rem;
+  --font-size-h4: 1.125rem;
+  --font-size-h5: 1rem;
+  --font-size-h6: 0.9rem;
+  --line-height-body: 1.6;
+  --line-height-heading: 1.25;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2.5rem;
+
+  /* Grid */
+  --gutter-width: 3.4em;
+
+  /* Motion */
+  --transition-fast: 220ms ease;
+}
